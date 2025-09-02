@@ -1,0 +1,27 @@
+name: Deploy Firebase (Hosting + Functions)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Use a modern Node for any presteps (CLI, etc.)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Deploy using Firebase CLI via GitHub Action
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v3.3.2
+        with:
+          args: deploy --only hosting,functions
+        env:
+          PROJECT_ID: the-light-2025
+          # You already created this secret earlier:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THE_LIGHT_2025 }}
