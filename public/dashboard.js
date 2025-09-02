@@ -1,0 +1,1 @@
+document.getElementById('speakWeather')?.addEventListener('click',()=>{const t='Weather is calm and clear. Temperature feels comfortable for a short walk.';speechSynthesis.speak(new SpeechSynthesisUtterance(t));document.getElementById('weatherBox').textContent='Spoken ✓';});

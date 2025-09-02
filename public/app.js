@@ -1,0 +1,1 @@
+window.addEventListener('load',()=>{const b=document.getElementById('toggleBtn');const s=document.getElementById('lightState');if(!b||!s)return;let on=true;b.addEventListener('click',()=>{on=!on;b.textContent=on?'Turn Off':'Turn On';s.textContent=on?'Light is ON':'Light is OFF';});});
